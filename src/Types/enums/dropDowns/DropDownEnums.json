@@ -1,0 +1,614 @@
+{
+  "authenticationTypes": [
+    {
+      "value": 1,
+      "label": "مشخص نیست"
+    },
+    {
+      "value": 2,
+      "label": "کارت ملی"
+    },
+    {
+      "value": 3,
+      "label": "شناسنامه"
+    },
+    {
+      "value": 4,
+      "label": "گذرنامه"
+    },
+    {
+      "value": 5,
+      "label": "گواهینامه رانندگی"
+    }
+  ],
+  "barcodeTypes": [
+    {
+      "value": 1,
+      "label": "بارکد حلزون"
+    },
+    {
+      "value": 2,
+      "label": "بارکد لجستیک"
+    },
+    {
+      "value": 3,
+      "label": "بارکد مشتری"
+    }
+  ],
+  "bundleStatus": [
+    {
+      "value": 1,
+      "label": "پذیرش مرسوله"
+    },
+    {
+      "value": 2,
+      "label": "درحال باندل بندی"
+    },
+    {
+      "value": 3,
+      "label": "پذیرش باندل"
+    },
+    {
+      "value": 4,
+      "label": "پذیرش شده"
+    },
+    {
+      "value": 5,
+      "label": "آماده توزیع"
+    },
+    {
+      "value": 6,
+      "label": "توزیع شده"
+    },
+    {
+      "value": 7,
+      "label": "تحویل نهایی"
+    },
+    {
+      "value": 8,
+      "label": "تاخیر در تحویل"
+    },
+    {
+      "value": 9,
+      "label": "آماده توزیع به لجستیک"
+    },
+    {
+      "value": 10,
+      "label": "در حال توزیع به لجستیک"
+    },
+    {
+      "value": 11,
+      "label": "مرجوع"
+    },
+    {
+      "value": 12,
+      "label": "بافر موقت"
+    },
+    {
+      "value": 13,
+      "label": "عودت"
+    },
+    {
+      "value": 14,
+      "label": "لغو شده"
+    }
+  ],
+  "contractServiceType": [
+    {
+      "value": 1,
+      "label": "بافر حمل"
+    },
+    {
+      "value": 2,
+      "label": "بافر"
+    },
+    {
+      "value": 3,
+      "label": "پودو"
+    },
+    {
+      "value": 4,
+      "label": "بازگشت از مبدا"
+    },
+    {
+      "value": 5,
+      "label": "عودت"
+    },
+    {
+      "value": 6,
+      "label": "رسوبی"
+    },
+    {
+      "value": 7,
+      "label": "اکسپرس"
+    },
+    {
+      "value": 8,
+      "label": "همان روز"
+    },
+    {
+      "value": 9,
+      "label": "بافر شبانه"
+    },
+    {
+      "value": 10,
+      "label": "حمل"
+    }
+  ],
+  "damageParcelType": [
+    {
+      "value": 1,
+      "label": "بسته‌بندی اسیب دیده است (پاره یا باز شده است)"
+    },
+    {
+      "value": 2,
+      "label": "مرسوله به طور کلی آسیب دیده است"
+    },
+    {
+      "value": 3,
+      "label": "شکستگی کالا"
+    },
+    {
+      "value": 4,
+      "label": "نشت مایعات"
+    },
+    {
+      "value": 100,
+      "label": "سایر"
+    }
+  ],
+  "damageTimeType": [
+    {
+      "value": 1,
+      "label": "هنگام پذیرش از مشتری"
+    },
+    {
+      "value": 2,
+      "label": "هنگام پذیرش از ناوگان"
+    },
+    {
+      "value": 3,
+      "label": "در میکروهاب اتفاق افتاده است"
+    }
+  ],
+  "fleetService": [
+    {
+      "value": 1,
+      "label": "ناوگان ناحیه‌ای"
+    },
+    {
+      "value": 2,
+      "label": "اشتراکی"
+    },
+    {
+      "value": 3,
+      "label": "کلینر"
+    },
+    {
+      "value": 4,
+      "label": "ناوگان گردشی"
+    }
+  ],
+  "fleetType": [
+    {
+      "value": 1,
+      "label": "موتور"
+    },
+    {
+      "value": 2,
+      "label": "سواری"
+    },
+    {
+      "value": 3,
+      "label": "ون"
+    },
+    {
+      "value": 4,
+      "label": "کامیون"
+    }
+  ],
+  "jobType": [
+    {
+      "value": 1,
+      "label": "پذیرش سوپروایزر"
+    },
+    {
+      "value": 2,
+      "label": "تحویل سوپروایزر"
+    },
+    {
+      "value": 3,
+      "label": "توقف ناوگان در میکروهاب"
+    },
+    {
+      "value": 4,
+      "label": "پذیرش ناوگان"
+    },
+    {
+      "value": 5,
+      "label": "تحویل ناوگان"
+    },
+    {
+      "value": 6,
+      "label": "پذیرش مرجوعی"
+    },
+    {
+      "value": 7,
+      "label": "تحویل بافر موقت"
+    },
+    {
+      "value": 8,
+      "label": "پذیرش ناوگان اشتراکی"
+    },
+    {
+      "value": 9,
+      "label": "تحویل ناوگان اشتراکی"
+    }
+  ],
+  "missionDateFilter": [
+    {
+      "value": 1,
+      "label": "امروز"
+    },
+    {
+      "value": 2,
+      "label": "دیروز"
+    },
+    {
+      "value": 3,
+      "label": "هفته جاری"
+    },
+    {
+      "value": 4,
+      "label": "ماه جاری"
+    }
+  ],
+  "missionStatus": [
+    {
+      "value": 1,
+      "label": "امروز"
+    },
+    {
+      "value": 2,
+      "label": "دیروز"
+    },
+    {
+      "value": 3,
+      "label": "هفته جاری"
+    },
+    {
+      "value": 4,
+      "label": "ماه جاری"
+    }
+  ],
+  "nodeKind": [
+    {
+      "value": 0,
+      "label": "معمولی"
+    },
+    {
+      "value": 1,
+      "label": "مرجع"
+    },
+    {
+      "value": 2,
+      "label": "سیار"
+    }
+  ],
+  "nodeService": [
+    {
+      "value": 1,
+      "label": "بافر"
+    },
+    {
+      "value": 2,
+      "label": "بافر حمل"
+    },
+    {
+      "value": 3,
+      "label": "اکسپرس"
+    },
+    {
+      "value": 4,
+      "label": "پودو"
+    }
+  ],
+  "orderStatus": [
+    {
+      "value": 1,
+      "label": "ثبت سفارش"
+    },
+    {
+      "value": 2,
+      "label": "پرداخت نشده"
+    },
+    {
+      "value": 3,
+      "label": "نهایی"
+    },
+    {
+      "value": 4,
+      "label": "لغو شده"
+    }
+  ],
+  "orderType": [
+    {
+      "value": 1,
+      "label": "بافر حمل"
+    },
+    {
+      "value": 2,
+      "label": "بافر"
+    },
+    {
+      "value": 3,
+      "label": "پودو"
+    },
+    {
+      "value": 4,
+      "label": "دارک استور"
+    },
+    {
+      "value": 5,
+      "label": "اکسپرس"
+    },
+    {
+      "value": 6,
+      "label": "همان روز"
+    },
+    {
+      "value": 7,
+      "label": "بافر شبانه"
+    }
+  ],
+  "parcelStatus": [
+    {
+      "value": 1,
+      "label": "ثبت اولیه"
+    },
+    {
+      "value": 2,
+      "label": "در انتظار پذیرش"
+    },
+    {
+      "value": 3,
+      "label": "پذیرش شده"
+    },
+    {
+      "value": 4,
+      "label": "آماده تحویل"
+    },
+    {
+      "value": 5,
+      "label": "در حال توزیع"
+    },
+    {
+      "value": 6,
+      "label": "تحویل نهایی"
+    },
+    {
+      "value": 7,
+      "label": "تاخیر در پذیرش"
+    },
+    {
+      "value": 8,
+      "label": "برگشتی"
+    },
+    {
+      "value": 9,
+      "label": "رسوبی"
+    },
+    {
+      "value": 10,
+      "label": "مرجوع"
+    },
+    {
+      "value": 11,
+      "label": "بافر موقت"
+    },
+    {
+      "value": 12,
+      "label": "عودت"
+    },
+    {
+      "value": 13,
+      "label": "لغو شده"
+    },
+    {
+      "value": 14,
+      "label": "آسیب دیده"
+    }
+  ],
+  "parcelType": [
+    {
+      "value": 1,
+      "label": "پاکت سایز ۱"
+    },
+    {
+      "value": 2,
+      "label": "پاکت سایز ۲"
+    },
+    {
+      "value": 3,
+      "label": "پاکت سایز ۳"
+    },
+    {
+      "value": 4,
+      "label": "کارتن سایز ۱"
+    },
+    {
+      "value": 5,
+      "label": "کارتن سایز ۲"
+    },
+    {
+      "value": 6,
+      "label": "کارتن سایز ۳"
+    },
+    {
+      "value": 7,
+      "label": "کارتن سایز ۴"
+    },
+    {
+      "value": 8,
+      "label": "کارتن سایز ۵"
+    }
+  ],
+  "role": [
+    {
+      "value": 1,
+      "label": "ادمین"
+    },
+    {
+      "value": 2,
+      "label": "ادمین عملیات"
+    },
+    {
+      "value": 3,
+      "label": "سوپروایزر"
+    },
+    {
+      "value": 4,
+      "label": "ناوگان"
+    },
+    {
+      "value": 5,
+      "label": "مشتری"
+    },
+    {
+      "value": 6,
+      "label": "مدیر مالی"
+    }
+  ],
+  "scanType": [
+    {
+      "value": 1,
+      "label": "دستی"
+    },
+    {
+      "value": 2,
+      "label": "دوربین"
+    },
+    {
+      "value": 3,
+      "label": "دسته‌ای"
+    },
+    {
+      "value": 4,
+      "label": "سیستمی"
+    },
+    {
+      "value": 5,
+      "label": "کد تحویل (POD)"
+    }
+  ],
+  "timeWindowType": [
+    {
+      "value": 1,
+      "label": "بافر حمل"
+    },
+    {
+      "value": 2,
+      "label": "بافر"
+    },
+    {
+      "value": 3,
+      "label": "همان روز"
+    },
+    {
+      "value": 4,
+      "label": "پذیرش بافر شبانه"
+    },
+    {
+      "value": 5,
+      "label": "تحویل بافر شبانه"
+    },
+    {
+      "value": 6,
+      "label": "پذیرش پودو"
+    },
+    {
+      "value": 7,
+      "label": "تحویل پودو"
+    }
+  ],
+  "topUpType": [
+    {
+      "value": 1,
+      "label": "نعریف اعتبار"
+    },
+    {
+      "value": 2,
+      "label": "اعتبار دوره ای"
+    },
+    {
+      "value": 3,
+      "label": "شارژ حساب"
+    },
+    {
+      "value": 4,
+      "label": "شارژ موردی"
+    }
+  ],
+  "transactionReasonType": [
+    {
+      "value": 1,
+      "label": "تسویه حساب"
+    },
+    {
+      "value": 2,
+      "label": "ثبت سفارش"
+    }
+  ],
+  "transactionStatus": [
+    {
+      "value": 1,
+      "label": "موفق"
+    },
+    {
+      "value": 2,
+      "label": "ناموفق"
+    }
+  ],
+  "transactionType": [
+    {
+      "value": 1,
+      "label": "بستانکاری"
+    },
+    {
+      "value": 2,
+      "label": "بدهکاری"
+    }
+  ],
+  "userListType": [
+    {
+      "value": 1,
+      "label": "مدیر سیستم"
+    },
+    {
+      "value": 2,
+      "label": "ادمین"
+    },
+    {
+      "value": 3,
+      "label": "ادمین عملیات"
+    },
+    {
+      "value": 4,
+      "label": "سوپروایزر"
+    },
+    {
+      "value": 5,
+      "label": "ناوگان"
+    }
+  ],
+  "walletType": [
+    {
+      "value": 1,
+      "label": "نقدی"
+    },
+    {
+      "value": 2,
+      "label": "اعتباری"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'YekanBakh';
+    src: url('../assets/fonts/YekanBakhFaNum-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'YekanBakh';
+    src: url('../assets/fonts/YekanBakhFaNum-Light.ttf') format('truetype');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+/*@font-face {*/
+/*    font-family: 'YekanBakh';*/
+/*    src: url('../assets/fonts/YekanBakh-VF.ttf') format('truetype');*/
+/*    font-weight: normal;*/
+/*    font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family: 'YekanBakh';*/
+/*    src: url('../assets/fonts/YekanBakh-Regular.ttf') format('truetype');*/
+/*    font-weight: normal;*/
+/*    font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*    font-family: 'YekanBakh';*/
+/*    src: url('../assets/fonts/YekanBakh-Light.ttf') format('truetype');*/
+/*    font-weight: lighter;*/
+/*    font-style: normal;*/
+/*}*/
+
+body {
+    font-family: 'YekanBakh', sans-serif;
+    direction: rtl;
+}
+
+.leaflet-control-layers {
+    top: 50px !important;
+}
+
+/* استایل اسکرول بار برای مرورگرهای WebKit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* استایل اسکرول بار برای مرورگر Firefox */
+html {
+    scrollbar-width: thin; /* thin | auto | none */
+    scrollbar-color: #888 #f1f1f1; /* thumb color | track color */
+}
+
+.leaflet-control {
+    margin-bottom: 50px; /* فاصله بین کنترل‌ها */
+}
+
+.leaflet-control-layers {
+    margin-top: 90px!important;
+}
+
+.leaflet-control-fullscreen {
+    margin-top: 50px; /* این مقدار فاصله را تعیین می‌کند */
+}
+
+/* برای حذف پدینگ و مارجین اضافی */
+.leaflet-popup-content {
+    font-family: 'YekanBakh', sans-serif !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.leaflet-popup {
+    padding: 0 !important;
+}
+.leaflet-popup-tip{
+    background: #FF4B4B !important;
+}
+.leaflet-popup-close-button{
+    display: none;
+}
