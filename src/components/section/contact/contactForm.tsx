@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+
 import ContactImg from "../../../../public/image/aboutSection/aboutgirlIcon.svg";
 
 const ContactForm: React.FC = () => {
@@ -73,7 +73,7 @@ const ContactForm: React.FC = () => {
 
         {/* تصویر */}
         <div className="shrink-0">
-          <Image
+          <img
             src={ContactImg}
             alt="Contact Illustration"
             width={550}

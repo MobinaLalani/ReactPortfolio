@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import GmailIcon from "@/components/ui/icons/GmailIcon";
-import LinkedinIcon from "@/components/ui/icons/linkedinIcon";
-import PhoneIcon from "@/components/ui/icons/phoneIcon";
+import GmailIcon from "../../../ui/icons/GmailIcon";
+import LinkedinIcon from "../../../ui/icons/linkedinIcon";
+import PhoneIcon from "../../..//ui/icons/phoneIcon";
 
 type LabelType = "linkedin" | "phone" | "gmail";
 

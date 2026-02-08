@@ -1,12 +1,11 @@
 import React from "react";
-import { useRouter } from "next/navigation";
-import Image, { StaticImageData } from "next/image";
+import { useNavigate } from "react-router-dom";
 
 interface ProjectCardProps {
   id: number;
   title: string;
   description: string;
-  image: string | StaticImageData; // می‌تواند string یا import image باشد
+  image: string; // در React فقط string (url یا public path)
   technologies: string[];
   demoLink?: string;
 }
@@ -19,21 +18,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   technologies,
   demoLink,
 }) => {
-  const router = useRouter();
+  const navigate = useNavigate();
 
   return (
     <div
-      onClick={() => router.push(`/projects/${id}`)}
+      onClick={() => navigate(`/projects/${id}`)}
       className="max-w-md border-2 border-black bg-white shadow-[6px_6px_0_0_#000] cursor-pointer"
     >
       {/* Image */}
-      <div className="relative border-b-2 border-black h-48 w-full">
-        <Image
-          src={typeof image === "string" ? image : image.src} // اگر string بود مستقیم بده، اگر import بود از src استفاده کن
-          alt={title}
-          fill
-          className="object-cover"
-        />
+      <div className="relative border-b-2 border-black h-48 w-full overflow-hidden">
+        <img src={image} alt={title} className="w-full h-full object-cover" />
 
         {/* Gray Overlay */}
         <div className="absolute inset-0 bg-gray-900/40" />
@@ -62,6 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={demoLink}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()} // جلوگیری از navigate کارت
             className="inline-block text-sm font-semibold underline"
           >
             View Project →
