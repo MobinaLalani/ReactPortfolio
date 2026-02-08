@@ -7,7 +7,7 @@ const routes = [
     element: React.lazy(() => import("../../src/pages/mainPage/Index")),
   },
   {
-  path:'/project/:projectId' ,
+  path:'/projects/:projectId' ,
   element:React.lazy(() =>import('../../src/pages/project/index'))
  }
 

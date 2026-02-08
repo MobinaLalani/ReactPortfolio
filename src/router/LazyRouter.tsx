@@ -19,9 +19,7 @@ const LazyRouter = () => {
       {routes.map((route: RoutesType, index: number) => (
         <Route key={index} path={route.path} element={<route.element />} />
       ))}
- 
-</Routes>
-
+     </Routes>
     </Suspense>
   );
 };

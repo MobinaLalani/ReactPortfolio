@@ -14,7 +14,7 @@ export default function MainLayout({ children }: Props) {
     <div className="font-geist-mono antialiased overflow-x-hidden">
       <Navbar />
       <SmoothScrollProvider>
-        <div className="py-18 max-h-[97vh]">{children}</div>
+        <div className="max-w-7xl mx-auto container">{children}</div>
       </SmoothScrollProvider>
       <Footer />
     </div>

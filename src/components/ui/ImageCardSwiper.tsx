@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards } from "swiper/modules";
-import { StaticImageData } from "next/image";
 
 import "swiper/css";
 import "swiper/css/effect-cards";
@@ -40,7 +39,7 @@ export default function ImageCardSwiper({
         allowTouchMove
         className="mySwiper"
         dir={direction}
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        onSlideChange={(swiper:any) => setActiveIndex(swiper.activeIndex)}
         cardsEffect={{
           perSlideOffset: 15,
           perSlideRotate: 2,

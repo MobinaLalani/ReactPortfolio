@@ -1,6 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import girlIcon from "../../../../public/image/heroSection/girlIcon.svg";
+import girlIcon from "../../../assets/image/heroSection/girlIcon.svg";
 
 export default function HeroSectionIndex() {
   return (
@@ -56,7 +55,7 @@ export default function HeroSectionIndex() {
 
       {/* تصویر */}
       <div className="shrink-0">
-        <Image
+        <img
           src={girlIcon}
           alt="Hero Illustration"
           width={400}

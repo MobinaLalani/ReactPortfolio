@@ -1,22 +1,23 @@
-// ProjectIndex.tsx
 import React from "react";
+import { useParams } from "react-router-dom"; // ✅ برای گرفتن پارامتر URL
 import PhotoSlider, {
   ImageItem,
-} from "@/components/ui/photoSlider/PhotoSlider";
-import { getProjectById } from "@/utils/helperFunction";
+} from "../../../components/ui/photoSlider/PhotoSlider";
+import { getProjectById } from "../../../utils/helperFunction";
 
-type ProjectIndexProp = {
-  projectId: number;
-};
+const ProjectIndex = () => {
+  const { projectId } = useParams<{ projectId: string }>(); // projectId از URL میاد
+  const id = Number(projectId); // تبدیل به عدد
 
-const ProjectIndex = ({ projectId }: ProjectIndexProp) => {
-  const project = getProjectById(projectId);
+  if (isNaN(id)) return <div>Invalid Project ID</div>;
+
+  const project = getProjectById(id);
 
   if (!project) return <div>Project not found</div>;
 
   // تبدیل project.images به ImageItem
   const images: ImageItem[] = project.images.map((img, idx) => ({
-    src: typeof img === "string" ? img : img.src, // import یا string
+    src: typeof img === "string" ? img : img, // import یا string
     title: project.title,
     description: project.paragraphs[idx] || project.paragraphs[0], // هر تصویر یک پاراگراف یا پاراگراف اول
   }));

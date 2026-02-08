@@ -1,7 +1,5 @@
-"use client";
-
 import React, { useState } from "react";
-import { usePathname } from "next/navigation";
+import { useLocation } from "react-router-dom";
 
 interface TabProps {
   label: string;
@@ -33,9 +31,11 @@ const DynamicTabs: React.FC<DynamicTabsProps> = React.memo(
     onChangeActive,
   }) => {
     const [internalActive, setInternalActive] = useState(defaultActiveTab);
-    const pathname = usePathname(); // ✅ Next.js router
+    const location = useLocation(); // ✅ React Router
+
     const currentActive =
       typeof activeIndex === "number" ? activeIndex : internalActive;
+
     const setActive = (index: number) => {
       if (onChangeActive) onChangeActive(index);
       else setInternalActive(index);
@@ -44,7 +44,7 @@ const DynamicTabs: React.FC<DynamicTabsProps> = React.memo(
     return (
       <div
         className={`w-full relative p-4 rounded-2xl flex flex-col justify-start items-start transition-all duration-300 ${className}
-          ${pathname.startsWith("/parcel") ? "opacity-100" : ""}
+          ${location.pathname.startsWith("/parcel") ? "opacity-100" : ""}
         `}
       >
         <div
@@ -58,11 +58,11 @@ const DynamicTabs: React.FC<DynamicTabsProps> = React.memo(
               aria-selected={currentActive === index}
               onClick={() => setActive(index)}
               className={`tab whitespace-nowrap cursor-pointer transition-all hover:scale-95 active:scale-100
-              ${
-                currentActive === index
-                  ? activeTabClassName
-                  : inactiveTabClassName
-              }`}
+                ${
+                  currentActive === index
+                    ? activeTabClassName
+                    : inactiveTabClassName
+                }`}
             >
               {tab.label}
             </div>
@@ -74,7 +74,7 @@ const DynamicTabs: React.FC<DynamicTabsProps> = React.memo(
         </div>
       </div>
     );
-  }
+  },
 );
 
 DynamicTabs.displayName = "DynamicTabs";

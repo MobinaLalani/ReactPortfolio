@@ -4,104 +4,220 @@
 
 @font-face {
     font-family: 'YekanBakh';
-    src: url('../assets/fonts/YekanBakhFaNum-Regular.ttf') format('truetype');
+    src: url('../../public/font/Chewy-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'YekanBakh';
-    src: url('../assets/fonts/YekanBakhFaNum-Light.ttf') format('truetype');
-    font-weight: lighter;
+    font-family: 'FjallaOne';
+    src: url('../../public/font/Signika.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
 }
 
-/*@font-face {*/
-/*    font-family: 'YekanBakh';*/
-/*    src: url('../assets/fonts/YekanBakh-VF.ttf') format('truetype');*/
-/*    font-weight: normal;*/
-/*    font-style: normal;*/
-/*}*/
+/* ===== Hide Scrollbar but keep scroll ===== */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
-/*@font-face {*/
-/*    font-family: 'YekanBakh';*/
-/*    src: url('../assets/fonts/YekanBakh-Regular.ttf') format('truetype');*/
-/*    font-weight: normal;*/
-/*    font-style: normal;*/
-/*}*/
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+:root {
+  --background: #EBDBC1;
+  --foreground: #0e0e10;
+  --accent: #a16a4c;
+  --muted: #c0bdb6;
+  --border: #c0bdb6;
+  --card: #ffffff;
 
-/*@font-face {*/
-/*    font-family: 'YekanBakh';*/
-/*    src: url('../assets/fonts/YekanBakh-Light.ttf') format('truetype');*/
-/*    font-weight: lighter;*/
-/*    font-style: normal;*/
-/*}*/
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+
+  /* فونت‌ها */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0e0e10;
+    --foreground: #DCC9A7;
+
+    --accent: #a16a4c;
+    --muted: #c0bdb6;
+    --border: #1a1a1c;
+    --card: #121214;
+  }
+}
+
+/* .scroll-container {
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+} */
 
 body {
-    font-family: 'YekanBakh', sans-serif;
-    direction: rtl;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'YekanBakh', sans-serif;
+}
+.container {
+  padding-top: 80px !important;
 }
 
-.leaflet-control-layers {
-    top: 50px !important;
+.FjallaOneّFont {
+  font-family: 'FjallaOne' ,sans-serif;
+}
+.mySwiper {
+  width: 500px;
+  height: 420px;
+  margin: 40px auto;
 }
 
-/* استایل اسکرول بار برای مرورگرهای WebKit (Chrome, Safari, Opera) */
-::-webkit-scrollbar {
-    width: 12px;
+.swiper-slide {
+  border-radius: 18px;
+  pointer-events: none;
 }
 
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
+.slide-inner {
+  pointer-events: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: default;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-    transition: background 0.3s ease;
+.slide-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 18px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
+.slide-inner {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  z-index: 1;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
+    /* سایه بزرگ */ 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه کوچک‌تر برای عمق بیشتر */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* استایل اسکرول بار برای مرورگر Firefox */
-html {
-    scrollbar-width: thin; /* thin | auto | none */
-    scrollbar-color: #888 #f1f1f1; /* thumb color | track color */
+.slide-inner:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-.leaflet-control {
-    margin-bottom: 50px; /* فاصله بین کنترل‌ها */
+.zoom-btn {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 2;
 }
 
-.leaflet-control-layers {
-    margin-top: 90px!important;
+.zoom-btn:hover {
+  /* background: rgba(0, 0, 0, 0.85); */
+  transform: scale(1.1);
 }
 
-.leaflet-control-fullscreen {
-    margin-top: 50px; /* این مقدار فاصله را تعیین می‌کند */
+.fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: zoom-out;
 }
 
-/* برای حذف پدینگ و مارجین اضافی */
-.leaflet-popup-content {
-    font-family: 'YekanBakh', sans-serif !important;
-    padding: 0 !important;
-    margin: 0 !important;
+.fullscreen-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 12px;
+  animation: zoomIn 0.3s ease;
 }
 
-.leaflet-popup-content-wrapper {
-    padding: 0 !important;
-    margin: 0 !important;
+.close-btn {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
 }
 
-.leaflet-popup {
-    padding: 0 !important;
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
-.leaflet-popup-tip{
-    background: #FF4B4B !important;
+
+.hero-border {
+  position: relative;
+  padding: 2rem;
 }
-.leaflet-popup-close-button{
-    display: none;
+
+.hero-border::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 4px dashed black; /* ضخامت و dashed */
+  border-radius: 0.5rem;
+  pointer-events: none;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-import ContactImg from "../../../../public/image/aboutSection/aboutgirlIcon.svg";
+import ContactImg from "../../../assets/image/aboutSection/aboutgirlIcon.svg";
 
 const ContactForm: React.FC = () => {
   return (

@@ -1,8 +1,8 @@
 'use client'
 import { useState } from "react";
 import ProjectCard from "./components/ProjectCard";
-import ArrowIcon from "@/components/ui/icons/ArrowIcon";
-import {projects} from "@/data/projects";
+import ArrowIcon from "../../../components/ui/icons/ArrowIcon";
+import {projects} from '../../../data/projects'
 
 // const projects = [
 //   {

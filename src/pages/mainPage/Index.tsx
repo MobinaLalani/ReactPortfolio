@@ -7,13 +7,13 @@ import ContactForm from "../../components/section/contact/contactForm";
 
 function MainPageIndex() {
   return (
-    <div>
+    <>
       <HeroSectionIndex />
       <ContactIndex />
       <SkillsIndex />
       <ProjectIndex />
       <ContactForm />
-    </div>
+    </>
   );
 }
 
