@@ -1,4 +1,4 @@
-export const baseTitle = 'حلزون'
+export const baseTitle = 'MobinaLalani'
 export const pageTitle = {
     dashboard: 'داشبورد',
     MhDashboard:'داشبرد سوپروایزر',

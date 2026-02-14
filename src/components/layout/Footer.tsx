@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-border mt-10">
+    <footer className=" border-t-2 border-black mt-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 text-sm text-foreground/70 flex flex-col sm:flex-row items-center gap-3 sm:gap-6 justify-between">
         <p>© {new Date().getFullYear()} Portfolio. All rights reserved.</p>
         <div className="flex items-center gap-4">

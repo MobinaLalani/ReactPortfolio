@@ -49,7 +49,7 @@ export default function ConnectionCard({ label }: Props) {
   return (
     <button
       onClick={handleCopy}
-      className="relative w-12 h-12 border-3 border-black flex items-center justify-center rounded-md
+      className="relative w-12 h-12 border-[2px] border-black flex items-center justify-center rounded-md
                  hover:bg-black transition-colors duration-300 group"
     >
       {/* Tooltip با انیمیشن */}

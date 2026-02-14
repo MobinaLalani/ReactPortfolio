@@ -23,7 +23,7 @@ export default function SkillsIndex() {
   return (
     <section className="mt-16">
       {/* Title */}
-      <div className="max-w-360 mx-auto border-b-2 pb-4 mb-10">
+      <div className="max-w-360 mx-auto  border-b-2 border-black pb-4 mb-10">
         <div className="flex justify-center items-end gap-2">
           <span className="FjallaOneّFont text-3xl font-bold">My</span>
           <span className="text-5xl font-bold">Skills</span>

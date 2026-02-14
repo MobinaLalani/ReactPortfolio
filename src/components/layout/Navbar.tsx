@@ -6,7 +6,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-inherit ">
+    <header className="fixed top-0 z-50 w-full   bg-base-content p-5">
       <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         {/* لوگو */}
         <Link
@@ -31,10 +31,9 @@ export default function Navbar() {
           <a
             href="/resumeFile/MobinaLalaniFrontendDeveloper.pdf"
             download="Mobina_Lalani_Frontend_Developer.pdf"
-              className="bg-black text-white px-4 py-2 rounded-md hover:bg-primary/80 FjallaOneّFont transition font-fjalla"
+            className="bg-black text-white px-4 py-2 rounded-md hover:bg-primary/80 FjallaOneّFont transition font-fjalla"
           >
             Download Resume
-          
           </a>
         </div>
         <button
@@ -42,7 +41,6 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
-    
             <svg
               className="w-6 h-6 text-foreground"
               fill="none"

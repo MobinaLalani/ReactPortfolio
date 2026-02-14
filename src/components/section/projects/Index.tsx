@@ -4,47 +4,18 @@ import ProjectCard from "./components/ProjectCard";
 import ArrowIcon from "../../../components/ui/icons/ArrowIcon";
 import {projects} from '../../../data/projects'
 
-// const projects = [
-//   {
-//     id: 1,
-//     title: "URL Shortener",
-//     description:
-//       "This project is a responsive website that shows Shortly which ",
-//     image: "/image/managementPic/AdminDashboard.png",
-//     technologies: ["HTML", "CSS", "JavaScript"],
-//     demoLink: "https://example.com",
-//   },
-//   {
-//     id: 2,
-//     title: "Task Manager",
-//     description: "A simple task manager app built with React and TypeScript.",
-//     image: "/image/managementPic/AdminDashboard.png",
-//     technologies: ["React", "TypeScript", "TailwindCSS"],
-//     demoLink: "https://example.com/task-manager",
-//   },
-//   {
-//     id: 3,
-//     title: "Portfolio Website",
-//     description:
-//       "My personal portfolio website to showcase projects and skills.",
-//     image: "/image/managementPic/AdminDashboard.png",
-//     technologies: ["HTML", "CSS", "JavaScript"],
-//     demoLink: "https://example.com/portfolio",
-//   },
-//   {
-//     id: 4,
-//     title: "Blog Platform",
-//     description: "A blogging platform built with Next.js and Markdown support.",
-//     image: "/image/managementPic/AdminDashboard.png",
-//     technologies: ["Next.js", "React", "Markdown"],
-//     demoLink: "https://example.com/blog",
-//   },
-// ];
-
-
 export default function ProjectIndex() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const visibleCount = 3;
+
+  const getVisibleCount = () => {
+    if (typeof window === "undefined") return 3;
+
+    if (window.innerWidth < 640) return 1; 
+    if (window.innerWidth < 1024) return 2; 
+    return 3; 
+  };
+
+  const visibleCount = getVisibleCount();
 
   const prevProject = () => {
     setCurrentIndex((prev) =>
@@ -57,21 +28,26 @@ export default function ProjectIndex() {
       prev >= projects.length - visibleCount ? 0 : prev + 1,
     );
   };
- console.log("projects", projects);
+
   return (
-    <div className="relative max-w-360 mx-auto mt-16 p-4">
-      <div className="max-w-360 mx-auto  pb-4 mb-10">
-        <span className="text-7xl font-bold justify-center  pb-3 flex">
+    <div className="relative max-w-[1200px] mx-auto mt-16 px-4">
+      {/* Title */}
+      <div className="pb-6 mb-10">
+        <h2 className="text-4xl md:text-6xl font-bold flex justify-center">
           Projects
-        </span>
+        </h2>
       </div>
+
+      {/* Prev Button */}
       <button
         onClick={prevProject}
-        className="absolute -left-20 top-1/2 -translate-y-1/2 
-             bg-gray-200 hover:bg-gray-300 p-2 rounded-full z-10"
+        className="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2 
+                   bg-gray-200 hover:bg-gray-300 p-3 rounded-full z-10"
       >
-        <ArrowIcon className="h-11 w-11 rotate-90" />
+        <ArrowIcon className="h-8 w-8 rotate-90" />
       </button>
+
+      {/* Slider */}
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-in-out"
@@ -79,28 +55,37 @@ export default function ProjectIndex() {
             transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
           }}
         >
-          {projects.map((project, index) => (
-            <div key={project.id} className="w-1/3 flex-shrink-0 px-2">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="
+                w-full
+                sm:w-1/2
+                lg:w-1/3
+                flex-shrink-0
+                px-3
+              "
+            >
               <ProjectCard
                 id={project.id}
                 title={project.title}
                 description={project.description}
                 technologies={project.technologies}
-                image={project.img} // نگاشت img -> image
+                image={project.img}
               />
             </div>
           ))}
         </div>
       </div>
 
+      {/* Next Button */}
       <button
         onClick={nextProject}
-        className="absolute -right-20 top-1/2 -translate-y-1/2 
-             bg-gray-200 hover:bg-gray-300 p-2 rounded-full z-10"
+        className="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 
+                   bg-gray-200 hover:bg-gray-300 p-3 rounded-full z-10"
       >
-        <ArrowIcon className="h-11 w-11 rotate-270" />
+        <ArrowIcon className="h-8 w-8 rotate-[270deg]" />
       </button>
     </div>
   );
 }
-

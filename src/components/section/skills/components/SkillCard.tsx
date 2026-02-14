@@ -11,7 +11,7 @@ function SkillCard({ name, icon, dark }: Skill) {
     <div
       className={`
         w-28 h-28 md:w-32 md:h-32
-        border-2  rounded-lg
+         border-2 border-black  rounded-lg
         flex flex-col items-center justify-center gap-2
         transition
         ${dark ? "bg-black text-white" : "bg-card text-foreground"}
