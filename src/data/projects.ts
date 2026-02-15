@@ -63,7 +63,7 @@ export const projects: Project[] = [
     img: HalazMapProject,
     description:
       "A geospatial platform for visualizing logistics and routing data.",
-    technologies: ["React", "TypeScript", "Mapbox", "TailwindCSS"],
+    technologies: ["React", "TypeScript", "Zustand", "TailwindCSS"],
     repo: "https://github.com/",
   },
   {
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     img: HalazMapProject,
     description:
       "A geospatial platform for visualizing logistics and routing data.",
-    technologies: ["React", "TypeScript", "Mapbox", "TailwindCSS"],
+    technologies: ["React", "TypeScript", "ContextApi","Zustand", "TailwindCSS"],
     repo: "https://github.com/",
   },
   {
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     img: LandingPic2, // import شده، مسیر string اشتباه حذف شد
     description:
       "A geospatial platform for visualizing logistics and routing data.",
-    technologies: ["React", "TypeScript", "Mapbox", "TailwindCSS"],
+    technologies: ["Next.js", "TypeScript", "Zustand", "TailwindCSS"],
     repo: "https://github.com/",
   },
 ];
