@@ -34,8 +34,26 @@ export default function ConnectionCard({ label }: Props) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(CONNECTION_CONFIG[label].value);
-    setCopied(true);
+    const text = CONNECTION_CONFIG[label].value;
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+    } catch {
+      try {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        setCopied(true);
+      } catch {
+        setCopied(true);
+      }
+    }
   };
 
   // بعد از 1.5 ثانیه tooltip محو بشه
@@ -54,8 +72,8 @@ export default function ConnectionCard({ label }: Props) {
     >
       {/* Tooltip با انیمیشن */}
       <span
-        className={`absolute -top-8 text-xs px-2 py-1 bg-black text-white rounded 
-                    transition-all duration-300 ease-in-out
+        className={`absolute -top-8 z-50 text-xs px-2 py-1 bg-black text-white rounded pointer-events-none whitespace-nowrap
+                    transition-all duration-300 ease-in-out drop-shadow
                     ${copied ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}
       >
         Copied!

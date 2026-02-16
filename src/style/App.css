@@ -286,3 +286,10 @@ body {
     filter: saturate(1);
   }
 }
+
+@media (max-width: 640px) {
+  :root {
+    --background: #EBDBC1;
+    --foreground: #0e0e10;
+  }
+}

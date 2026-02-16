@@ -121,7 +121,7 @@ export default function Navbar() {
 
       {/* منوی موبایل */}
       {isOpen && (
-        <div className="md:hidden bg-background text-foreground w-full px-4 pb-4 flex flex-col gap-4">
+        <div className="md:hidden bg-background text-foreground w-full px-4 pb-4 flex flex-col gap-4 mt-5">
           <button
             className="text-left hover:text-primary"
             onClick={() => {
@@ -132,7 +132,7 @@ export default function Navbar() {
             Projects
           </button>
           <button
-            className="text-left hover:text-primary"
+            className="text-left hover:text-[#968c7c]"
             onClick={() => {
               setIsOpen(false);
               handleNavClick("about");
@@ -141,7 +141,7 @@ export default function Navbar() {
             About
           </button>
           <button
-            className="text-left hover:text-primary"
+            className="text-left hover:text-[#968c7c]"
             onClick={() => {
               setIsOpen(false);
               handleNavClick("contact");
@@ -152,7 +152,7 @@ export default function Navbar() {
           <a
             href="/resume.pdf"
             download
-            className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/80 transition font-fjalla text-center"
+            className="bg-[#968c7c] text-white px-4 py-2 rounded-md hover:bg-[#968c7c]/80 transition font-fjalla text-center"
             onClick={() => setIsOpen(false)}
           >
             Download Resume

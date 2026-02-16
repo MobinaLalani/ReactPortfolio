@@ -23,19 +23,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div
       onClick={() => navigate(`/projects/${id}`)}
-      className="
-        max-w-md
-        h-[420px]
-        border-2 border-black
-        bg-white
-        shadow-[6px_6px_0_0_#000]
-        cursor-pointer
-        flex flex-col
-        transition
-        hover:translate-x-[2px]
-        hover:translate-y-[2px]
-        hover:shadow-[4px_4px_0_0_#000]
-      "
+      className="max-w-md h-[420px] border-2 border-black bg-white
+             shadow-[6px_6px_0_0_#000] cursor-pointer flex flex-col
+             transition hover:translate-x-[2px]
+             hover:translate-y-[2px]
+             hover:shadow-[4px_4px_0_0_#000]"
     >
       {/* Image */}
       <div className="relative border-b-2 border-black h-48 w-full overflow-hidden shrink-0">

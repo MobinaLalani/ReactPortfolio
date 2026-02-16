@@ -1,19 +1,24 @@
-'use client'
-import { useEffect, useState } from "react";
+"use client";
+import { useEffect, useMemo, useRef, useState } from "react";
 import ProjectCard from "./components/ProjectCard";
 import ArrowIcon from "../../../components/ui/icons/ArrowIcon";
-import {projects} from '../../../data/projects'
+import { projects } from "../../../data/projects";
 
 export default function ProjectIndex() {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
+  const [loopIndex, setLoopIndex] = useState(3);
+  const [animating, setAnimating] = useState(true);
+  const pointerActiveRef = useRef(false);
+  const pointerStartXRef = useRef<number | null>(null);
+  const pointerStartYRef = useRef<number | null>(null);
+  const swipeHandledRef = useRef(false);
 
   const getVisibleCount = () => {
     if (typeof window === "undefined") return 3;
 
-    if (window.innerWidth < 640) return 1; 
-    if (window.innerWidth < 1024) return 2; 
-    return 3; 
+    if (window.innerWidth < 640) return 1;
+    if (window.innerWidth < 1024) return 2;
+    return 3;
   };
 
   useEffect(() => {
@@ -23,16 +28,28 @@ export default function ProjectIndex() {
     return () => window.removeEventListener("resize", update);
   }, []);
 
+  const extendedProjects = useMemo(() => {
+    const k = visibleCount;
+    const head = projects.slice(0, k);
+    const tail = projects.slice(-k);
+    return [...tail, ...projects, ...head];
+  }, [visibleCount]);
+
+  
+  useEffect(() => {
+    setAnimating(false);
+    setLoopIndex(visibleCount);
+    requestAnimationFrame(() => setAnimating(true));
+  }, [visibleCount]);
+
   const prevProject = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? projects.length - visibleCount : prev - 1,
-    );
+    setAnimating(true);
+    setLoopIndex((prev) => prev - 1);
   };
 
   const nextProject = () => {
-    setCurrentIndex((prev) =>
-      prev >= projects.length - visibleCount ? 0 : prev + 1,
-    );
+    setAnimating(true);
+    setLoopIndex((prev) => prev + 1);
   };
 
   return (
@@ -56,14 +73,79 @@ export default function ProjectIndex() {
       {/* Slider */}
       <div className="overflow-hidden">
         <div
-          className="flex transition-transform duration-500 ease-out"
+          className="flex select-none"
           style={{
-            transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
+            transform: `translateX(-${loopIndex * (100 / visibleCount)}%)`,
+            transition: animating ? "transform 500ms ease-out" : "none",
+            touchAction: "pan-y",
+            userSelect: "none",
+            WebkitUserSelect: "none",
+          }}
+          onTransitionEnd={() => {
+            const k = visibleCount;
+            const total = projects.length;
+            if (loopIndex >= total + k) {
+              setAnimating(false);
+              setLoopIndex((prev) => prev - total);
+              requestAnimationFrame(() => setAnimating(true));
+            } else if (loopIndex < k) {
+              setAnimating(false);
+              setLoopIndex((prev) => prev + total);
+              requestAnimationFrame(() => setAnimating(true));
+            }
+          }}
+          onPointerDown={(e) => {
+            if (e.pointerType !== "touch") return;
+            pointerActiveRef.current = true;
+            pointerStartXRef.current = e.clientX;
+            pointerStartYRef.current = e.clientY ?? 0;
+            swipeHandledRef.current = false;
+            try {
+              (e.currentTarget as HTMLDivElement).setPointerCapture(
+                e.pointerId
+              );
+            } catch {}
+          }}
+          onPointerMove={(e) => {
+            if (e.pointerType !== "touch") return;
+            if (!pointerActiveRef.current || swipeHandledRef.current) return;
+            const sx = pointerStartXRef.current;
+            const sy = pointerStartYRef.current;
+            if (sx == null || sy == null) return;
+            const dx = e.clientX - sx;
+            const dy = e.clientY - sy;
+            if (Math.abs(dx) > 30 && Math.abs(dx) > Math.abs(dy)) {
+              if (dx > 0) {
+                prevProject();
+              } else {
+                nextProject();
+              }
+              swipeHandledRef.current = true;
+            }
+          }}
+          onPointerUp={(e) => {
+            if (e.pointerType !== "touch") return;
+            pointerActiveRef.current = false;
+            swipeHandledRef.current = false;
+            pointerStartXRef.current = null;
+            pointerStartYRef.current = null;
+            try {
+              (e.currentTarget as HTMLDivElement).releasePointerCapture(
+                e.pointerId
+              );
+            } catch {}
+          }}
+          onPointerCancel={() => {
+            // فقط تاچ را مدیریت می‌کنیم؛ اگر pointercancel شد، وضعیت لمس ریست می‌شود
+            pointerActiveRef.current = false;
+            swipeHandledRef.current = false;
+            pointerStartXRef.current = null;
+            pointerStartYRef.current = null;
           }}
         >
-          {projects.map((project) => (
+          {extendedProjects.map((project, i) => (
             <div
-              key={project.id}
+              key={`${i}-${project.id}`}
               className="
                 w-full
                 sm:w-1/2
@@ -84,7 +166,6 @@ export default function ProjectIndex() {
         </div>
       </div>
 
-      {/* Next Button */}
       <button
         onClick={nextProject}
         className="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2 
