@@ -1,9 +1,46 @@
-'use client'
+"use client";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const animateScrollTo = (targetY: number, duration = 650) => {
+    const startY = window.scrollY || window.pageYOffset;
+    const delta = targetY - startY;
+    const startTime = performance.now();
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const t = Math.min(1, elapsed / duration);
+      const eased = easeInOutCubic(t);
+      window.scrollTo(0, startY + delta * eased);
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const header = document.querySelector("header") as HTMLElement | null;
+    const offset = header?.offsetHeight ?? 0;
+    const top = el.getBoundingClientRect().top + window.scrollY - (offset + 8);
+    animateScrollTo(top);
+    el.classList.add("section-pulse");
+    setTimeout(() => el.classList.remove("section-pulse"), 1200);
+  };
+  const handleNavClick = (id: "projects" | "about" | "contact") => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => scrollToSection(id), 50);
+    } else {
+      scrollToSection(id);
+    }
+  };
 
   return (
     <header className="fixed top-0 z-50 w-full   bg-base-content p-5">
@@ -17,15 +54,27 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:flex flex-1 justify-center gap-6 text-sm text-foreground">
-          <Link to="/projects" className="hover:text-primary">
+          <button
+            className="hover:text-primary"
+            onClick={() => handleNavClick("projects")}
+            type="button"
+          >
             Projects
-          </Link>
-          <Link to="/about" className="hover:text-primary">
+          </button>
+          <button
+            className="hover:text-primary"
+            onClick={() => handleNavClick("about")}
+            type="button"
+          >
             About
-          </Link>
-          <Link to="/contact" className="hover:text-primary">
+          </button>
+          <button
+            className="hover:text-primary"
+            onClick={() => handleNavClick("contact")}
+            type="button"
+          >
             Contact
-          </Link>
+          </button>
         </nav>
         <div className="hidden md:block">
           <a
@@ -73,27 +122,33 @@ export default function Navbar() {
       {/* منوی موبایل */}
       {isOpen && (
         <div className="md:hidden bg-background text-foreground w-full px-4 pb-4 flex flex-col gap-4">
-          <Link
-            to="/projects"
-            className="hover:text-primary"
-            onClick={() => setIsOpen(false)}
+          <button
+            className="text-left hover:text-primary"
+            onClick={() => {
+              setIsOpen(false);
+              handleNavClick("projects");
+            }}
           >
             Projects
-          </Link>
-          <Link
-            to="/about"
-            className="hover:text-primary"
-            onClick={() => setIsOpen(false)}
+          </button>
+          <button
+            className="text-left hover:text-primary"
+            onClick={() => {
+              setIsOpen(false);
+              handleNavClick("about");
+            }}
           >
             About
-          </Link>
-          <Link
-            to="/contact"
-            className="hover:text-primary"
-            onClick={() => setIsOpen(false)}
+          </button>
+          <button
+            className="text-left hover:text-primary"
+            onClick={() => {
+              setIsOpen(false);
+              handleNavClick("contact");
+            }}
           >
             Contact
-          </Link>
+          </button>
           <a
             href="/resume.pdf"
             download

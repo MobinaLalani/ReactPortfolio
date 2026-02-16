@@ -1,52 +1,38 @@
-import React, { useEffect } from "react";
+import React from "react";
+
 import Navbar from "./Navbar";
+
 import Footer from "./Footer";
+
 import SmoothScrollProvider from "../../provider/SmoothScrollProvider";
-import "../../style/App.css" ;
+
+import "../../style/App.css";
+
 // import "./globals.css";
-import { useLocation } from "react-router-dom";
 
 type Props = {
   children: React.ReactNode;
 };
 
 export default function MainLayout({ children }: Props) {
-  const location = useLocation();
-
-  useEffect(() => {
-    const shouldLock =
-      location.pathname.startsWith("/projects/") ||
-      location.pathname.startsWith("/project/");
-
-    if (shouldLock) {
-      document.documentElement.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
-    } else {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    };
-  }, [location.pathname]);
-
-  const shouldLock =
-    location.pathname.startsWith("/projects/") ||
-    location.pathname.startsWith("/project/");
-
   return (
-    <div className="font-geist-mono antialiased overflow-x-hidden">
-      
+    <div className="font-geist-mono antialiased overflow-x-hidden relative">
+      {/* بک‌گراند پارالاکس */}
+
+      <div
+        className="fixed top-1/2 left-0 w-full h-[300px] bg-gradient-to-b 
+        from-[#EBDBC1] 
+        via-[#dab984]
+        to-[#EBDBC1]
+         z-1"
+      />
+
       <Navbar />
-      {shouldLock ? (
-        <div className="max-w-7xl mx-auto container">{children}</div>
-      ) : (
-        <SmoothScrollProvider>
-          <div className="max-w-7xl mx-auto container">{children}</div>
-        </SmoothScrollProvider>
-      )}
+
+      <SmoothScrollProvider>
+        <div className="max-w-7xl mx-auto container relative">{children}</div>
+      </SmoothScrollProvider>
+
       <Footer />
     </div>
   );

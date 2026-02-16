@@ -23,7 +23,7 @@ interface PhotoSliderProps {
   autoPlayInterval?: number;
   loop?: boolean;
   showThumbnails?: boolean;
-  mobileVariant?: "carousel" | "grid";
+  mobileVariant?: "carousel" | "grid" | "row";
   desktopVariant?: "carousel" | "grid";
   breakpoint?: number;
 }
@@ -36,7 +36,7 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
   autoPlayInterval = 5000,
   loop = true,
   showThumbnails = true,
-  mobileVariant = "grid",
+  mobileVariant = "row",
   desktopVariant = "carousel",
   breakpoint = 768,
 }) => {
@@ -188,26 +188,59 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
           ))}
         </div>
       </div>
+    ) : effectiveVariant === "row" ? (
+      <div className="max-w-6xl mx-auto w-full px-4">
+        <div
+          className="flex gap-3 overflow-x-auto no-scrollbar pb-2 snap-x snap-mandatory"
+          aria-label="Mobile row gallery"
+        >
+          {images.map((img, i) => {
+            const isActive = i === activeIndex;
+            return (
+              <button
+                key={i}
+                type="button"
+                onClick={() => {
+                  goTo(i);
+                  setIsLightboxOpen(true);
+                }}
+                className={`snap-start shrink-0 rounded-xl overflow-hidden border-2 ${
+                  isActive ? "border-black" : "border-transparent"
+                } shadow-[3px_3px_0_0_#000]`}
+                aria-label={`نمایش تصویر ${i + 1}`}
+              >
+                <img
+                  src={img.src}
+                  alt={img.title || `image ${i + 1}`}
+                  className="w-[70vw] max-w-[360px] h-[56vh] object-cover"
+                  draggable={false}
+                />
+              </button>
+            );
+          })}
+        </div>
+      </div>
     ) : (
       <div
         className="rounded-2xl border-2 border-black bg-white shadow-[6px_6px_0_0_#000] overflow-hidden"
         style={{ height }}
       >
-        <div className="grid grid-rows-[1fr_auto] h-full">
-          <div className="relative h-full bg-gray-100 select-none">
+        <div className="grid grid-rows-[1fr_auto] h-full min-h-0">
+          <div className="relative h-full min-h-0 bg-gray-100 select-none overflow-hidden">
             <div
               ref={focusRef}
               tabIndex={0}
               aria-roledescription="carousel"
               aria-label="Image viewer"
-              className="group outline-none h-full w-full flex items-center justify-center"
+              className="group outline-none h-full w-full min-h-0 flex items-center justify-center"
               onPointerDown={(e) => {
                 pointerActiveRef.current = true;
                 pointerStartXRef.current = e.clientX;
                 swipeHandledRef.current = false;
               }}
               onPointerMove={(e) => {
-                if (!pointerActiveRef.current || swipeHandledRef.current) return;
+                if (!pointerActiveRef.current || swipeHandledRef.current)
+                  return;
                 const startX = pointerStartXRef.current;
                 if (startX == null) return;
                 const dx = e.clientX - startX;
@@ -242,7 +275,7 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   transition={{ duration: 0.3 }}
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-full object-contain  "
                   draggable={false}
                 />
               </AnimatePresence>
@@ -296,18 +329,18 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 border-t-2 border-black bg-[#f7f7f7]">
-            <div className="md:col-span-2">
-              <div className="text-sm leading-6 text-gray-800 min-h-[3rem]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 border-t-2 border-black bg-[#f7f7f7] h-[160px] md:h-[180px]">
+            <div className="md:col-span-2 h-full">
+              <div className="text-sm leading-6 text-gray-800 h-full overflow-y-auto pr-1">
                 {active.description}
               </div>
             </div>
 
             {showThumbnails && (
-              <div className="md:col-span-1">
+              <div className="md:col-span-1 h-full">
                 <div
                   ref={thumbScrollRef}
-                  className="flex gap-3 overflow-x-auto no-scrollbar pr-1"
+                  className="flex gap-3 overflow-x-auto no-scrollbar pr-1 h-full items-start"
                   onWheel={(e) => {
                     if (!thumbScrollRef.current) return;
                     const delta =
@@ -324,7 +357,7 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
                       <div
                         key={i}
                         data-index={i}
-                        className={`shrink-0 cursor-pointer rounded-md border-2 ${
+                        className={`shrink-0 cursor-pointer rounded-md border-2 self-start ${
                           isActive ? "border-black" : "border-transparent"
                         }`}
                         onClick={() => goTo(i)}
@@ -390,7 +423,10 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
                 onPointerDown={(e) => {
                   if (zoom <= 1) return;
                   setDragging(true);
-                  dragStartRef.current = { x: e.clientX - translate.x, y: e.clientY - translate.y };
+                  dragStartRef.current = {
+                    x: e.clientX - translate.x,
+                    y: e.clientY - translate.y,
+                  };
                 }}
                 onPointerMove={(e) => {
                   if (!dragging || zoom <= 1 || !dragStartRef.current) return;
@@ -417,14 +453,35 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
                   alt={active.title || "fullscreen"}
                   className="w-full h-full object-contain select-none"
                   draggable={false}
-                  style={{
-                    transform: `translate(${translate.x}px, ${translate.y}px) scale(${zoom})`,
-                    transformOrigin: "center center",
-                    willChange: "transform",
-                    transition: dragging ? "none" : "transform 120ms ease-out",
-                  } as React.CSSProperties}
+                  style={
+                    {
+                      transform: `translate(${translate.x}px, ${translate.y}px) scale(${zoom})`,
+                      transformOrigin: "center center",
+                      willChange: "transform",
+                      transition: dragging
+                        ? "none"
+                        : "transform 120ms ease-out",
+                    } as React.CSSProperties
+                  }
                 />
               </div>
+
+              {isMobile && (
+                <motion.div
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "100%", opacity: 0 }}
+                  transition={{ duration: 0.28 }}
+                  className="absolute left-2 right-2 bottom-2 bg-white rounded-2xl shadow-[4px_4px_0_0_#000] border-2 border-black"
+                >
+                  <div className="w-16 h-1.5 bg-gray-300 rounded-full mx-auto my-2" />
+                  <div className="px-4 pb-3 max-h-[30vh] overflow-y-auto">
+                    <div className="text-sm text-gray-800 leading-6">
+                      {active.description}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
 
               {hasMultiple && (
                 <>

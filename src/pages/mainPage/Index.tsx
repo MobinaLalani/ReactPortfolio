@@ -8,11 +8,17 @@ import ContactForm from "../../components/section/contact/contactForm";
 function MainPageIndex() {
   return (
     <>
-      <HeroSectionIndex />
+      <section id="about" className="scroll-mt-28">
+        <HeroSectionIndex />
+      </section>
       <ContactIndex />
       <SkillsIndex />
-      <ProjectIndex />
-      <ContactForm />
+      <section id="projects" className="scroll-mt-28">
+        <ProjectIndex />
+      </section>
+      <section id="contact" className="scroll-mt-28">
+        <ContactForm />
+      </section>
     </>
   );
 }
