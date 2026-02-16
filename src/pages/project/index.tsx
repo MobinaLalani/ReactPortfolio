@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom"; // ✅ برای گرفتن پارامتر URL
 import PhotoSlider, {
   ImageItem,
-} from '../../components/ui/photoSlider/PhotoSlider'
+} from "../../components/ui/photoSlider/PhotoSlider";
 import { getProjectById } from "../../utils/helperFunction";
 
 const ProjectIndex = () => {
@@ -24,10 +24,10 @@ const ProjectIndex = () => {
   }));
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
+    <>
+      <h1 className="text-3xl font-bold mb-4 ">{project.title}</h1>
       <PhotoSlider images={images} />
-    </div>
+    </>
   );
 };
 
