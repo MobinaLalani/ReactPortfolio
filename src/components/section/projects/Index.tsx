@@ -1,11 +1,12 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectCard from "./components/ProjectCard";
 import ArrowIcon from "../../../components/ui/icons/ArrowIcon";
 import {projects} from '../../../data/projects'
 
 export default function ProjectIndex() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(3);
 
   const getVisibleCount = () => {
     if (typeof window === "undefined") return 3;
@@ -15,7 +16,12 @@ export default function ProjectIndex() {
     return 3; 
   };
 
-  const visibleCount = getVisibleCount();
+  useEffect(() => {
+    const update = () => setVisibleCount(getVisibleCount());
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   const prevProject = () => {
     setCurrentIndex((prev) =>
@@ -30,10 +36,10 @@ export default function ProjectIndex() {
   };
 
   return (
-    <div className="relative max-w-[1200px] mx-auto mt-16 px-4">
+    <div className="relative max-w-[1200px] mx-auto mt-10 px-4">
       {/* Title */}
-      <div className="pb-6 mb-10">
-        <h2 className="text-4xl md:text-6xl font-bold flex justify-center">
+      <div className="pb-4 mb-8">
+        <h2 className="text-3xl md:text-6xl font-bold flex justify-center">
           Projects
         </h2>
       </div>
@@ -50,7 +56,7 @@ export default function ProjectIndex() {
       {/* Slider */}
       <div className="overflow-hidden">
         <div
-          className="flex transition-transform duration-700 ease-in-out"
+          className="flex transition-transform duration-500 ease-out"
           style={{
             transform: `translateX(-${currentIndex * (100 / visibleCount)}%)`,
           }}

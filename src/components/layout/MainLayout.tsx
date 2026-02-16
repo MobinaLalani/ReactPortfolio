@@ -20,7 +20,7 @@ export default function MainLayout({ children }: Props) {
       {/* بک‌گراند پارالاکس */}
 
       <div
-        className="fixed top-1/2 left-0 w-full h-[300px] bg-gradient-to-b 
+        className="fixed top-1/2 left-0 w-full h-[100px] md:h-[300px] bg-gradient-to-b 
         from-[#EBDBC1] 
         via-[#dab984]
         to-[#EBDBC1]

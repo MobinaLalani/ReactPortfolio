@@ -6,7 +6,7 @@ import LandingPic3 from "../assets/image/Landing/Landing1.png";
 import supervisor1 from "../assets/image/supervisor/supervisor1.png";
 import supervisor2 from "../assets/image/supervisor/supervisor2.png";
 import supervisor3 from "../assets/image/supervisor/supervisor3.png";
-
+import Admindashboard from "../assets/image/managementPic/AdminDashboard.png";
 import userInfo from "../assets/image/panelPic/createBuffer.png";
 import wallet from "../assets/image/panelPic/walletPic.png";
 import parcelDetail from "../assets/image/panelPic/parcelDetail.png";
@@ -17,7 +17,7 @@ import BaseMap from "../assets/image/mapProject/baseMapPic.png";
 import fleetPic from "../assets/image/managementPic/managment-fleet.png";
 import AdminDashboardPic from "../assets/image/managementPic/AdminDashboard.png";
 import bundleListPic from "../assets/image/managementPic/managment-bundleList.png";
-
+import PanelPic from '../assets/image/panelPic/createOrder.png';
 import HalazMapProject from "../assets/image/mapProject/baseMapPic.png";
 
 // ======================================================
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     id: 1,
     slug: "Halazone-Management",
     title: "Halazone-Management",
-    img: HalazLogo,
+    img: Admindashboard,
     description:
       "A reusable UI component library with comprehensive documentation.",
     technologies: ["React", "TypeScript", "TailwindCSS", "Storybook"],
@@ -70,17 +70,23 @@ export const projects: Project[] = [
     id: 3,
     slug: "customerPanel",
     title: "Halazone-CustomerPanel",
-    img: HalazMapProject,
+    img: PanelPic,
     description:
       "A geospatial platform for visualizing logistics and routing data.",
-    technologies: ["React", "TypeScript", "ContextApi","Zustand", "TailwindCSS"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "ContextApi",
+      "Zustand",
+      "TailwindCSS",
+    ],
     repo: "https://github.com/",
   },
   {
     id: 4,
     slug: "Halazone-SupervisorApp",
     title: "Halazone-SupervisorApp",
-    img: HalazMapProject,
+    img: supervisor3,
     description:
       "A geospatial platform for visualizing logistics and routing data.",
     technologies: ["React", "TypeScript", "Mapbox", "TailwindCSS"],
@@ -90,7 +96,7 @@ export const projects: Project[] = [
     id: 5,
     slug: "Halazone-LandingPage",
     title: "Halazone-LandingPage",
-    img: LandingPic2, // import شده، مسیر string اشتباه حذف شد
+    img: LandingPic3, // import شده، مسیر string اشتباه حذف شد
     description:
       "A geospatial platform for visualizing logistics and routing data.",
     technologies: ["Next.js", "TypeScript", "Zustand", "TailwindCSS"],
