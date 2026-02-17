@@ -142,10 +142,9 @@ export const projectDetails: Record<number, ProjectSection> = {
       "It is optimized for performance, SEO, and user engagement.",
     ],
     link: {
-  label: "View Live Project",
-  url: "https://halazone.com",
-}
-,
+      label: "View Live Project",
+      url: "https://halazoneco.com/",
+    },
     images: [LandingPic1, LandingPic2, LandingPic3],
   },
   2: {

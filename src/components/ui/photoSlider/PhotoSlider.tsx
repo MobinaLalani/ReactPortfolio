@@ -335,6 +335,7 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
               <div className="text-sm leading-6 text-gray-800 h-full overflow-y-auto pr-1">
                 <div className="flex items-start md:items-center gap-3 flex-wrap">
                   <span className="flex-1">{active.description}</span>
+              
                   {active?.link?.url && (
                     <a
                       href={active.link.url}
@@ -342,8 +343,7 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 px-3 py-1 rounded-md border-2 border-black bg-white shadow-[3px_3px_0_0_#000] hover:translate-y-[1px] hover:shadow-[2px_2px_0_0_#000] transition text-xs font-semibold whitespace-nowrap"
                     >
-                      {active.link.label || "View"}
-                      <span aria-hidden>↗</span>
+                      {active.link.label || "View"} ↗
                     </a>
                   )}
                 </div>
