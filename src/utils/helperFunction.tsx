@@ -4,6 +4,7 @@ export type ProjectSection = {
   title: string;
   paragraphs: string[];
   images: (string )[];
+  link?:any
 };
 
 export function getProjectById(id: number): ProjectSection | null {

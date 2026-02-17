@@ -67,7 +67,7 @@ export default function HeroSectionIndex() {
       {/* متن */}
       <div className="flex flex-col max-w-xl text-center md:text-left">
         <h1 className="text-3xl md:text-5xl font-bold mb-4">
-          Hi, I&apos;m Mobina
+          Hi, I&apos;m MobinaLalani
         </h1>
         <h2 className="text-xl md:text-2xl text-gray-600 mb-6">
           Frontend Developer

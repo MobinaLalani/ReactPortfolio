@@ -21,6 +21,7 @@ const ProjectIndex = () => {
     src: typeof img === "string" ? img : img, // import یا string
     title: project.title,
     description: project.paragraphs[idx] || project.paragraphs[0], // هر تصویر یک پاراگراف یا پاراگراف اول
+    link:project.link
   }));
 
   return (

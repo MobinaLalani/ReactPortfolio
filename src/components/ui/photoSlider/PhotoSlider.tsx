@@ -13,6 +13,7 @@ export type ImageItem = {
   src: string;
   title?: string;
   description?: string;
+  link?:any
 };
 
 interface PhotoSliderProps {
@@ -332,7 +333,20 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 border-t-2 border-black bg-[#f7f7f7] h-[160px] md:h-[180px]">
             <div className="md:col-span-2 h-full">
               <div className="text-sm leading-6 text-gray-800 h-full overflow-y-auto pr-1">
-                {active.description}
+                <div className="flex items-start md:items-center gap-3 flex-wrap">
+                  <span className="flex-1">{active.description}</span>
+                  {active?.link?.url && (
+                    <a
+                      href={active.link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-md border-2 border-black bg-white shadow-[3px_3px_0_0_#000] hover:translate-y-[1px] hover:shadow-[2px_2px_0_0_#000] transition text-xs font-semibold whitespace-nowrap"
+                    >
+                      {active.link.label || "View"}
+                      <span aria-hidden>↗</span>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -477,7 +491,20 @@ const PhotoSlider: React.FC<PhotoSliderProps> = ({
                   <div className="w-16 h-1.5 bg-gray-300 rounded-full mx-auto my-2" />
                   <div className="px-4 pb-3 max-h-[30vh] overflow-y-auto">
                     <div className="text-sm text-gray-800 leading-6">
-                      {active.description}
+                      <div className="flex items-start gap-2 flex-wrap">
+                        <span className="flex-1">{active.description}</span>
+                        {active?.link?.url && (
+                          <a
+                            href={active.link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-3 py-1 rounded-md border-2 border-black bg-white shadow-[3px_3px_0_0_#000] text-xs font-semibold"
+                          >
+                            {active.link.label || "View"}
+                            <span aria-hidden>↗</span>
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </motion.div>

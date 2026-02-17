@@ -39,6 +39,10 @@ export type ProjectSection = {
   title: string;
   paragraphs: string[];
   images: string[];
+  link?: {
+    label:string,
+    url:string
+  };
 };
 
 // ======================================================
@@ -62,7 +66,7 @@ export const projects: Project[] = [
     title: "Halazone-Map",
     img: HalazMapProject,
     description:
-      "A geospatial platform for visualizing logistics and routing data.",
+      "An interactive map-based dashboard for monitoring nodes, zones, operational activities, and real-time fleet locations.",
     technologies: ["React", "TypeScript", "Zustand", "TailwindCSS"],
     repo: "https://github.com/",
   },
@@ -72,7 +76,7 @@ export const projects: Project[] = [
     title: "Halazone-CustomerPanel",
     img: PanelPic,
     description:
-      "A geospatial platform for visualizing logistics and routing data.",
+      "A user-friendly interface where customers can select services, place orders, and track their status in real time.",
     technologies: [
       "React",
       "TypeScript",
@@ -88,8 +92,8 @@ export const projects: Project[] = [
     title: "Halazone-SupervisorApp",
     img: supervisor3,
     description:
-      "A geospatial platform for visualizing logistics and routing data.",
-    technologies: ["React", "TypeScript", "Mapbox", "TailwindCSS"],
+      "A monitoring dashboard enabling supervisors to track parcels, fleet activity, and operational status in real time.",
+    technologies: ["React", "TypeScript", "Zustand" ,'leaflet', "TailwindCSS"],
     repo: "https://github.com/",
   },
   {
@@ -98,7 +102,7 @@ export const projects: Project[] = [
     title: "Halazone-LandingPage",
     img: LandingPic3, // import شده، مسیر string اشتباه حذف شد
     description:
-      "A geospatial platform for visualizing logistics and routing data.",
+      "Designed to communicate the platform’s vision, solutions, and user benefits through a clean, engaging UI.",
     technologies: ["Next.js", "TypeScript", "Zustand", "TailwindCSS"],
     repo: "https://github.com/",
   },
@@ -108,13 +112,12 @@ export const projectDetails: Record<number, ProjectSection> = {
   1: {
     title: "Halazone – Management System",
     paragraphs: [
-      "The Halazone management system is a logistics-focused platform designed to manage and optimize shipment delivery and storage.",
-      "It is composed of multiple sub-systems that together ensure efficiency, scalability, and reliability.",
+      "A centralized admin platform providing full system access and control over operational workflows, configurations, and data management.",
     ],
     images: [fleetPic, AdminDashboardPic, bundleListPic],
   },
 
-  2: {
+  3: {
     title: "Halazone – Customer Panel",
     paragraphs: [
       "The customer panel provides users with a seamless experience for creating and managing orders.",
@@ -123,7 +126,7 @@ export const projectDetails: Record<number, ProjectSection> = {
     images: [userInfo, wallet, parcelDetail],
   },
 
-  3: {
+  4: {
     title: "Halazone – Supervisor App",
     paragraphs: [
       "The supervisor application is a PWA designed for monitoring microhub operations.",
@@ -132,12 +135,24 @@ export const projectDetails: Record<number, ProjectSection> = {
     images: [supervisor1, supervisor2, supervisor3],
   },
 
-  4: {
+  5: {
     title: "Halazone – Landing Page",
     paragraphs: [
       "The landing page introduces Halazone’s services and features.",
       "It is optimized for performance, SEO, and user engagement.",
     ],
+    link: {
+  label: "View Live Project",
+  url: "https://halazone.com",
+}
+,
     images: [LandingPic1, LandingPic2, LandingPic3],
+  },
+  2: {
+    title: " Halazone - Map",
+    paragraphs: [
+      "A map-driven interface enabling dynamic rendering of zones, nodes, operational layers, and live vehicle tracking. Built with a focus on performance, responsiveness, and data clarity.",
+    ],
+    images: [mapPicpng, mapPic, BaseMap],
   },
 };

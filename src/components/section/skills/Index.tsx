@@ -26,7 +26,7 @@ export default function SkillsIndex() {
       <div
         className="
           md:max-w-3xl  max-w-2xs mx-auto
-          grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5
+          grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5
           md:gap-6  justify-items-center gap-2
         "
       >
