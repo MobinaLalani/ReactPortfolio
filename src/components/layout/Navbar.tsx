@@ -78,7 +78,7 @@ export default function Navbar() {
         </nav>
         <div className="hidden md:block">
           <a
-            href="/resumeFile/MobinaLalaniFrontendDeveloper.pdf"
+            href="/resumeFile/resume.pdf"
             download="Mobina_Lalani_Frontend_Developer.pdf"
             className="bg-black text-white px-4 py-2 rounded-md hover:bg-primary/80 FjallaOneّFont transition font-fjalla"
           >
