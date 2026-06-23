@@ -6,6 +6,18 @@ import LandingPic3 from "../assets/image/Landing/Landing1.png";
 import supervisor1 from "../assets/image/supervisor/supervisor1.png";
 import supervisor2 from "../assets/image/supervisor/supervisor2.png";
 import supervisor3 from "../assets/image/supervisor/supervisor3.png";
+import overViewImage from "../assets/image/dynamicApiDocBuilder/OverViewImage.png";
+import loginImage from "../assets/image/dynamicApiDocBuilder/LoginImage.png";
+import componentManagment1 from "../assets/image/dynamicApiDocBuilder/ComponentManagmentImage.png";
+import componentManagment2 from "../assets/image/dynamicApiDocBuilder/ComponentManagmentImage2.png";
+import importSwagger1 from "../assets/image/dynamicApiDocBuilder/ImportSwagger1.png";
+import importSwagger2 from "../assets/image/dynamicApiDocBuilder/ImportSwagger2.png";
+import importSwagger3 from "../assets/image/dynamicApiDocBuilder/ImportSwagger3.png";
+import importSwagger4 from "../assets/image/dynamicApiDocBuilder/ImportSwagger4.png";
+import createPage1 from "../assets/image/dynamicApiDocBuilder/CreatePage1.png";
+import createPage2 from "../assets/image/dynamicApiDocBuilder/CreatePage2.png";
+import createPage3 from "../assets/image/dynamicApiDocBuilder/CreatePage3.png";
+import userOverView1 from "../assets/image/dynamicApiDocBuilder/UserOverView1.png";
 import Admindashboard from "../assets/image/managementPic/AdminDashboard.png";
 import userInfo from "../assets/image/panelPic/createBuffer.png";
 import wallet from "../assets/image/panelPic/walletPic.png";
@@ -93,7 +105,7 @@ export const projects: Project[] = [
     img: supervisor3,
     description:
       "A monitoring dashboard enabling supervisors to track parcels, fleet activity, and operational status in real time.",
-    technologies: ["React", "TypeScript", "Zustand" ,'leaflet', "TailwindCSS"],
+    technologies: ["React", "TypeScript", "Zustand", "leaflet", "TailwindCSS"],
     repo: "https://github.com/",
   },
   {
@@ -106,6 +118,20 @@ export const projects: Project[] = [
     technologies: ["Next.js", "TypeScript", "Zustand", "TailwindCSS"],
     repo: "https://github.com/",
   },
+  {
+    id: 6,
+    slug: "Dynamic_ApiDocBuilder",
+    title: "Dynamic_ApiDocBuilder",
+    img: overViewImage,
+    description:
+      "A dynamic API documentation platform that automatically generates and manages interactive API docs for developers",
+    technologies: [
+      "Next.js",
+      "TypeScripts",
+      "TailwindCSS",
+      "React Context API",
+    ],
+  },
 ];
 
 export const projectDetails: Record<number, ProjectSection> = {
@@ -116,7 +142,13 @@ export const projectDetails: Record<number, ProjectSection> = {
     ],
     images: [fleetPic, AdminDashboardPic, bundleListPic],
   },
-
+  2: {
+    title: " Halazone - Map",
+    paragraphs: [
+      "A map-driven interface enabling dynamic rendering of zones, nodes, operational layers, and live vehicle tracking. Built with a focus on performance, responsiveness, and data clarity.",
+    ],
+    images: [mapPicpng, mapPic, BaseMap],
+  },
   3: {
     title: "Halazone – Customer Panel",
     paragraphs: [
@@ -147,11 +179,29 @@ export const projectDetails: Record<number, ProjectSection> = {
     },
     images: [LandingPic1, LandingPic2, LandingPic3],
   },
-  2: {
-    title: " Halazone - Map",
+  6: {
+    title: "Dynamic_ApiDocBuilder",
     paragraphs: [
-      "A map-driven interface enabling dynamic rendering of zones, nodes, operational layers, and live vehicle tracking. Built with a focus on performance, responsiveness, and data clarity.",
+      "Dynamic DocsPlatform is a dynamic platform for creating, managing, and publishing API documentation.",
+      "It helps developers build interactive and organized API docs with a simple and flexible workflow.",
     ],
-    images: [mapPicpng, mapPic, BaseMap],
+    link: {
+      label: "View Project Source",
+      url: "https://github.com/MobinaLalani/DynamicFrontEndDocsProject-Next.git",
+    },
+    images: [
+      overViewImage,
+      loginImage,
+      componentManagment1,
+      componentManagment2,
+      importSwagger1,
+      importSwagger2,
+      importSwagger3,
+      importSwagger4,
+      createPage1,
+      createPage2,
+      createPage3,
+      userOverView1,
+    ],
   },
 };
