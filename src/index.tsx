@@ -1,18 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
-import {Helmet} from 'react-helmet';
-import {baseTitle} from "./assets/information/pageTitle";
 
-const root = ReactDOM.createRoot(
-    document.getElementById("root") as HTMLElement
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
+  </React.StrictMode>
 );
-root.render(
-    <>
-        <Helmet>
-            <title>{baseTitle}</title>
-        </Helmet>
-        <App/>
-    </>
-);
-
