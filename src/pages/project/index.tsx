@@ -73,7 +73,7 @@ const ProjectIndex = () => {
 
           {/* Description + Paragraphs */}
           <div className="space-y-3">
-            {[project.description, ...detail.paragraphs]
+            {(detail.detailContent ?? [project.description, ...detail.paragraphs])
               .filter(Boolean)
               .map((p, i) => (
                 <p key={i} className="text-sm text-gray-700 leading-6">

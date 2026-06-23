@@ -1,12 +1,7 @@
 
-import { projectDetails } from "../data/projects";
-export type ProjectSection = {
-  title: string;
-  paragraphs: string[];
-  images: (string )[];
-  link?:any
-};
+import { projectDetails, ProjectSection } from "../data/projects";
+export type { ProjectSection };
 
 export function getProjectById(id: number): ProjectSection | null {
-  return projectDetails[id] || null; // اگر id پیدا نشد، null برگردون
+  return projectDetails[id] || null;
 }

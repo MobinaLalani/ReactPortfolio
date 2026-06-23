@@ -51,6 +51,7 @@ export type ProjectSection = {
   title: string;
   paragraphs: string[];
   images: string[];
+  detailContent: string[];
   link?: {
     label:string,
     url:string
@@ -140,12 +141,22 @@ export const projectDetails: Record<number, ProjectSection> = {
     paragraphs: [
       "A centralized admin platform providing full system access and control over operational workflows, configurations, and data management.",
     ],
+    detailContent: [
+      "The Halazone Management System is a comprehensive admin dashboard built to give operators full visibility and control over the entire logistics platform.",
+      "It covers fleet management, bundle tracking, user administration, and operational reporting — all in one unified interface.",
+      "Built with performance and scalability in mind, the system handles large volumes of real-time data while keeping the UI responsive and intuitive for admin users.",
+    ],
     images: [fleetPic, AdminDashboardPic, bundleListPic],
   },
   2: {
     title: " Halazone - Map",
     paragraphs: [
       "A map-driven interface enabling dynamic rendering of zones, nodes, operational layers, and live vehicle tracking. Built with a focus on performance, responsiveness, and data clarity.",
+    ],
+    detailContent: [
+      "Halazone Map is an interactive geospatial dashboard for visualizing and managing logistics operations in real time.",
+      "Operators can view and edit delivery zones, monitor node status, and track live vehicle positions on the map — all with smooth pan and zoom interactions.",
+      "The system layers multiple data sources simultaneously, giving a clear operational picture without overwhelming the interface.",
     ],
     images: [mapPicpng, mapPic, BaseMap],
   },
@@ -154,6 +165,11 @@ export const projectDetails: Record<number, ProjectSection> = {
     paragraphs: [
       "The customer panel provides users with a seamless experience for creating and managing orders.",
       "Users can select destinations, services, and track their shipments in real time.",
+    ],
+    detailContent: [
+      "The Halazone Customer Panel is the end-user facing application where customers interact with the platform to create orders, manage their wallet, and track deliveries.",
+      "The interface guides users through service selection, destination input, and order confirmation — with a clean step-by-step flow designed to minimize friction.",
+      "Real-time shipment tracking and parcel detail views keep customers informed at every stage of their delivery.",
     ],
     images: [userInfo, wallet, parcelDetail],
   },
@@ -164,6 +180,11 @@ export const projectDetails: Record<number, ProjectSection> = {
       "The supervisor application is a PWA designed for monitoring microhub operations.",
       "It enables supervisors to manage fleets and shipments in real time.",
     ],
+    detailContent: [
+      "The Halazone Supervisor App is a Progressive Web App designed for field supervisors managing microhub logistics on the go.",
+      "Supervisors can monitor parcel intake and dispatch, track fleet activity, and resolve operational issues directly from their mobile device.",
+      "Built as a PWA, it works reliably across devices and network conditions — critical for field operations where connectivity can be inconsistent.",
+    ],
     images: [supervisor1, supervisor2, supervisor3],
   },
 
@@ -172,6 +193,11 @@ export const projectDetails: Record<number, ProjectSection> = {
     paragraphs: [
       "The landing page introduces Halazone’s services and features.",
       "It is optimized for performance, SEO, and user engagement.",
+    ],
+    detailContent: [
+      "The Halazone Landing Page is the public-facing marketing site that introduces the platform’s logistics services and value proposition.",
+      "Designed to convert visitors into users, it communicates the platform’s key features through clean visuals, structured sections, and clear calls to action.",
+      "Built with Next.js for optimal SEO performance and fast initial load, ensuring strong search visibility and a smooth first impression.",
     ],
     link: {
       label: "View Live Project",
@@ -184,6 +210,11 @@ export const projectDetails: Record<number, ProjectSection> = {
     paragraphs: [
       "Dynamic DocsPlatform is a dynamic platform for creating, managing, and publishing API documentation.",
       "It helps developers build interactive and organized API docs with a simple and flexible workflow.",
+    ],
+    detailContent: [
+      "Dynamic ApiDocBuilder is a full-featured platform for creating, organizing, and publishing interactive API documentation — built entirely on the frontend with Next.js.",
+      "Developers can import Swagger/OpenAPI specs directly, with the platform automatically parsing and rendering endpoints into structured, navigable pages.",
+      "Beyond auto-import, the platform supports manual component management, custom page creation, and role-based access — making it flexible for both small APIs and large multi-team projects.",
     ],
     link: {
       label: "View Project Source",
