@@ -30,7 +30,7 @@ export default function MainLayout({ children }: Props) {
       <Navbar />
 
       <SmoothScrollProvider>
-        <div className="max-w-7xl mx-auto container relative">{children}</div>
+        <div className="max-w-screen-2xl mx-auto container relative">{children}</div>
       </SmoothScrollProvider>
 
       <Footer />

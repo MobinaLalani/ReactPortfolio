@@ -53,7 +53,7 @@ export default function ProjectIndex() {
   };
 
   return (
-    <div className="relative max-w-[1200px] mx-auto mt-10 px-4">
+    <div className="relative max-w-[1500px] mx-auto mt-10 px-4">
       {/* Title */}
       <div className="pb-4 mb-8">
         <h2 className="text-3xl md:text-6xl font-bold flex justify-center">
