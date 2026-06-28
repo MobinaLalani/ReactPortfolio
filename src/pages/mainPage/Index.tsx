@@ -11,6 +11,7 @@ function MainPageIndex() {
       <section id="about" className="scroll-mt-28">
         <HeroSectionIndex />
       </section>
+      
       <ContactIndex />
       <SkillsIndex />
       <section id="projects" className="scroll-mt-28">
