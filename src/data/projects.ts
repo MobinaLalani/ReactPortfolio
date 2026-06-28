@@ -31,6 +31,11 @@ import AdminDashboardPic from "../assets/image/managementPic/AdminDashboard.png"
 import bundleListPic from "../assets/image/managementPic/managment-bundleList.png";
 import PanelPic from '../assets/image/panelPic/createOrder.png';
 import HalazMapProject from "../assets/image/mapProject/baseMapPic.png";
+import CalanderOverView from "../assets/image/MyCalander/CalanderOverView.png";
+import DaySheet from "../assets/image/MyCalander/DaySheet.png";
+import HabitCrud from "../assets/image/MyCalander/Habit crud.png";
+import WeeklyPlan from "../assets/image/MyCalander/weeklyPlan.png";
+import DashboardImage from "../assets/image/MyCalander/dashboardImage.png";
 
 // ======================================================
 // ======================= TYPES =========================
@@ -133,6 +138,15 @@ export const projects: Project[] = [
       "React Context API",
     ],
   },
+  {
+    id: 7,
+    slug: "MyCalander",
+    title: "My Calander",
+    img: DashboardImage,
+    description:
+      "A personal productivity app combining calendar management, weekly planning, daily task sheets, and habit tracking in one unified interface.",
+    technologies: ["React", "TypeScript", "TailwindCSS", "Zustand"],
+  },
 ];
 
 export const projectDetails: Record<number, ProjectSection> = {
@@ -234,5 +248,19 @@ export const projectDetails: Record<number, ProjectSection> = {
       createPage3,
       userOverView1,
     ],
+  },
+  7: {
+    title: "My Calander",
+    paragraphs: [
+      "A personal productivity application that combines calendar management with habit tracking and daily planning.",
+      "Users can plan their week, track daily tasks, and monitor habits — all within a clean and focused interface.",
+    ],
+    detailContent: [
+      "My Calander is a personal productivity app designed to help users stay organized across daily, weekly, and long-term goals.",
+      "The dashboard provides a high-level overview of upcoming events, active habits, and weekly progress — giving users instant clarity on their schedule and routines.",
+      "The weekly planner lets users structure their week with scheduled tasks and recurring events, while the day sheet view breaks each day into focused time blocks for detailed planning.",
+      "The habit tracker supports full CRUD operations — users can create custom habits, log daily completions, and track streaks over time to build consistent routines.",
+    ],
+    images: [DashboardImage, CalanderOverView, WeeklyPlan, DaySheet, HabitCrud],
   },
 };
